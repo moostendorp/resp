@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero Text Options - resp.ph</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        h2 {
+            margin: 2rem 0 1rem;
+            color: #111827;
+        }
+
+        /* Option 1: Current Improved */
+        .hero-1 {
+            background: linear-gradient(135deg, #1E3A8A 0%, #2563eb 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .hero-1 .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .hero-1 .hero-subtitle {
+            font-size: 1.375rem;
+            font-weight: 400;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Option 2: With Yellow Accent */
+        .hero-2 {
+            background: linear-gradient(135deg, #1E3A8A 0%, #2563eb 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .hero-2 .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+        .hero-2 .hero-subtitle {
+            font-size: 1.375rem;
+            font-weight: 500;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: #FEF3C7;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Option 3: With Semi-transparent Background */
+        .hero-3 {
+            background: linear-gradient(135deg, #1E3A8A 0%, #2563eb 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .hero-3 .hero-content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 16px;
+            display: inline-block;
+        }
+        .hero-3 .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+        .hero-3 .hero-subtitle {
+            font-size: 1.375rem;
+            font-weight: 400;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Option 4: Larger & Bolder Subtitle */
+        .hero-4 {
+            background: linear-gradient(135deg, #1E3A8A 0%, #2563eb 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .hero-4 .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        .hero-4 .hero-subtitle {
+            font-size: 1.625rem;
+            font-weight: 500;
+            line-height: 1.5;
+            max-width: 750px;
+            margin: 0 auto 2rem;
+            letter-spacing: -0.01em;
+        }
+
+        /* Option 5: Two-tone with highlight */
+        .hero-5 {
+            background: linear-gradient(135deg, #1E3A8A 0%, #2563eb 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        .hero-5::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, transparent 70%);
+        }
+        .hero-5 .hero-content {
+            position: relative;
+        }
+        .hero-5 .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+        .hero-5 .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            line-height: 1.5;
+            max-width: 750px;
+            margin: 0 auto 2rem;
+        }
+        .hero-5 .hero-subtitle strong {
+            font-weight: 600;
+            color: #93BBFC;
+        }
+
+        /* Option 6: With border emphasis */
+        .hero-6 {
+            background: linear-gradient(135deg, #1E3A8A 0%, #2563eb 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .hero-6 .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+        .hero-6 .hero-subtitle {
+            font-size: 1.375rem;
+            font-weight: 400;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            padding: 1.5rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 0.875rem 2rem;
+            font-weight: 600;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background-color: #10B981;
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="margin: 2rem 0; color: #1E3A8A;">Hero Subtitle Options</h1>
+        <p style="color: #4B5563; margin-bottom: 2rem;">Choose the most prominent and readable subtitle style:</p>
+    </div>
+
+    <!-- Option 1 -->
+    <h2 class="container">Option 1: Clean White (Current)</h2>
+    <section class="hero-1">
+        <div class="container">
+            <h1 class="hero-title">Your Real Estate Career, From Start to Success</h1>
+            <p class="hero-subtitle">From aspiring to licensed professionals — review classes, CPD seminars, and university programs, all in one place.</p>
+            <button class="cta-button">Join the Waitlist</button>
+        </div>
+    </section>
+
+    <!-- Option 2 -->
+    <h2 class="container">Option 2: Light Yellow Accent</h2>
+    <section class="hero-2">
+        <div class="container">
+            <h1 class="hero-title">Your Real Estate Career, From Start to Success</h1>
+            <p class="hero-subtitle">From aspiring to licensed professionals — review classes, CPD seminars, and university programs, all in one place.</p>
+            <button class="cta-button">Join the Waitlist</button>
+        </div>
+    </section>
+
+    <!-- Option 3 -->
+    <h2 class="container">Option 3: Glass-morphism Background</h2>
+    <section class="hero-3">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Your Real Estate Career, From Start to Success</h1>
+                <p class="hero-subtitle">From aspiring to licensed professionals — review classes, CPD seminars, and university programs, all in one place.</p>
+                <button class="cta-button">Join the Waitlist</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Option 4 -->
+    <h2 class="container">Option 4: Larger & Bolder</h2>
+    <section class="hero-4">
+        <div class="container">
+            <h1 class="hero-title">Your Real Estate Career, From Start to Success</h1>
+            <p class="hero-subtitle">From aspiring to licensed professionals — review classes, CPD seminars, and university programs, all in one place.</p>
+            <button class="cta-button">Join the Waitlist</button>
+        </div>
+    </section>
+
+    <!-- Option 5 -->
+    <h2 class="container">Option 5: Two-tone with Highlights</h2>
+    <section class="hero-5">
+        <div class="container hero-content">
+            <h1 class="hero-title">Your Real Estate Career, From Start to Success</h1>
+            <p class="hero-subtitle">From aspiring to licensed professionals — <strong>review classes</strong>, <strong>CPD seminars</strong>, and <strong>university programs</strong>, all in one place.</p>
+            <button class="cta-button">Join the Waitlist</button>
+        </div>
+    </section>
+
+    <!-- Option 6 -->
+    <h2 class="container">Option 6: Bordered Emphasis</h2>
+    <section class="hero-6">
+        <div class="container">
+            <h1 class="hero-title">Your Real Estate Career, From Start to Success</h1>
+            <p class="hero-subtitle">From aspiring to licensed professionals — review classes, CPD seminars, and university programs, all in one place.</p>
+            <button class="cta-button">Join the Waitlist</button>
+        </div>
+    </section>
+
+    <div class="container" style="margin: 3rem auto;">
+        <h2>Recommended: Option 4 or 5</h2>
+        <p style="color: #4B5563; line-height: 1.6;">
+            <strong>Option 4</strong> provides the best readability with a larger, medium-weight font that stands out clearly against the blue background.<br><br>
+            <strong>Option 5</strong> adds visual interest by highlighting key terms, making the value proposition even clearer.
+        </p>
+    </div>
+</body>
+</html>

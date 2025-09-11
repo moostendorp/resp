@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero Layout Options - resp.ph</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        h2 {
+            padding: 2rem;
+            background: #f9fafb;
+            margin: 0;
+            color: #111827;
+        }
+
+        /* Common styles */
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+            letter-spacing: -0.02em;
+        }
+        .hero-subtitle {
+            font-size: 1.625rem;
+            color: white;
+            font-weight: 500;
+            line-height: 1.5;
+            margin-bottom: 2.5rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 0.875rem 2rem;
+            font-weight: 600;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background-color: #10B981;
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Option 1: Current Layout (Image Below) */
+        .hero-1 {
+            background: linear-gradient(135deg, #1E3A8A 0%, #2563eb 100%);
+            padding: 4rem 0;
+            min-height: 500px;
+        }
+        .hero-1 .hero-content {
+            text-align: center;
+        }
+        .hero-1 .hero-image-wrapper {
+            margin-top: 3rem;
+        }
+        .hero-1 .hero-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Option 2: Side by Side */
+        .hero-2 {
+            background: linear-gradient(135deg, #1E3A8A 0%, #2563eb 100%);
+            padding: 4rem 0;
+        }
+        .hero-2 .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .hero-2 .hero-text {
+            text-align: left;
+        }
+        .hero-2 .hero-image {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Option 3: Full Width Background Image with Overlay */
+        .hero-3 {
+            position: relative;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+        .hero-3::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('images/hero-img.png') center/cover;
+            z-index: 1;
+        }
+        .hero-3::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.9) 0%, rgba(37, 99, 235, 0.85) 100%);
+            z-index: 2;
+        }
+        .hero-3 .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        /* Option 4: Split Screen */
+        .hero-4 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 600px;
+        }
+        .hero-4 .hero-text-section {
+            background: linear-gradient(135deg, #1E3A8A 0%, #2563eb 100%);
+            display: flex;
+            align-items: center;
+            padding: 3rem;
+        }
+        .hero-4 .hero-text {
+            width: 100%;
+        }
+        .hero-4 .hero-image-section {
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-4 .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Option 5: Contained with Better Spacing */
+        .hero-5 {
+            background: linear-gradient(135deg, #1E3A8A 0%, #2563eb 100%);
+            padding: 5rem 0 2rem;
+        }
+        .hero-5 .hero-content {
+            display: grid;
+            grid-template-columns: 5fr 4fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        .hero-5 .hero-text {
+            text-align: left;
+        }
+        .hero-5 .hero-image-wrapper {
+            position: relative;
+        }
+        .hero-5 .hero-image {
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            transform: perspective(1000px) rotateY(-5deg);
+        }
+
+        /* Option 6: Image as Accent */
+        .hero-6 {
+            background: linear-gradient(135deg, #1E3A8A 0%, #2563eb 100%);
+            padding: 6rem 0 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-6 .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .hero-6 .hero-text {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .hero-6 .hero-image-wrapper {
+            position: absolute;
+            right: -100px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 500px;
+            opacity: 0.2;
+            z-index: 1;
+        }
+        .hero-6 .hero-image {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            .hero-subtitle {
+                font-size: 1.25rem;
+            }
+            .hero-2 .hero-content,
+            .hero-4,
+            .hero-5 .hero-content {
+                grid-template-columns: 1fr;
+            }
+            .hero-4 .hero-image-section {
+                min-height: 300px;
+            }
+            .hero-6 .hero-image-wrapper {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Option 1: Current Layout -->
+    <h2>Option 1: Current Layout (Image Below Text) - May feel disconnected</h2>
+    <section class="hero-1">
+        <div class="container hero-content">
+            <h1 class="hero-title">Your Real Estate Career, From Start to Success</h1>
+            <p class="hero-subtitle">From aspiring to licensed professionals — review classes, CPD seminars, and university programs, all in one place.</p>
+            <button class="cta-button">Join the Waitlist</button>
+            <div class="hero-image-wrapper">
+                <img src="images/hero-img.png" alt="Young professionals" class="hero-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Option 2: Side by Side -->
+    <h2>Option 2: Side by Side (Better Balance)</h2>
+    <section class="hero-2">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">Your Real Estate Career, From Start to Success</h1>
+                    <p class="hero-subtitle">From aspiring to licensed professionals — review classes, CPD seminars, and university programs, all in one place.</p>
+                    <button class="cta-button">Join the Waitlist</button>
+                </div>
+                <div class="hero-image-wrapper">
+                    <img src="images/hero-img.png" alt="Young professionals" class="hero-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Option 3: Background Image with Overlay -->
+    <h2>Option 3: Full Background with Overlay (Immersive)</h2>
+    <section class="hero-3">
+        <div class="container hero-content">
+            <h1 class="hero-title">Your Real Estate Career, From Start to Success</h1>
+            <p class="hero-subtitle">From aspiring to licensed professionals — review classes, CPD seminars, and university programs, all in one place.</p>
+            <button class="cta-button">Join the Waitlist</button>
+        </div>
+    </section>
+
+    <!-- Option 4: Split Screen -->
+    <h2>Option 4: Split Screen (Modern)</h2>
+    <section class="hero-4">
+        <div class="hero-text-section">
+            <div class="hero-text">
+                <h1 class="hero-title">Your Real Estate Career, From Start to Success</h1>
+                <p class="hero-subtitle">From aspiring to licensed professionals — review classes, CPD seminars, and university programs, all in one place.</p>
+                <button class="cta-button">Join the Waitlist</button>
+            </div>
+        </div>
+        <div class="hero-image-section">
+            <img src="images/hero-img.png" alt="Young professionals" class="hero-image">
+        </div>
+    </section>
+
+    <!-- Option 5: Better Proportions -->
+    <h2>Option 5: Contained with 3D Effect (Professional)</h2>
+    <section class="hero-5">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">Your Real Estate Career, From Start to Success</h1>
+                    <p class="hero-subtitle">From aspiring to licensed professionals — review classes, CPD seminars, and university programs, all in one place.</p>
+                    <button class="cta-button">Join the Waitlist</button>
+                </div>
+                <div class="hero-image-wrapper">
+                    <img src="images/hero-img.png" alt="Young professionals" class="hero-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Option 6: Image as Background Accent -->
+    <h2>Option 6: Text Focus with Subtle Image (Minimal)</h2>
+    <section class="hero-6">
+        <div class="hero-image-wrapper">
+            <img src="images/hero-img.png" alt="Young professionals" class="hero-image">
+        </div>
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">Your Real Estate Career, From Start to Success</h1>
+                <p class="hero-subtitle">From aspiring to licensed professionals — review classes, CPD seminars, and university programs, all in one place.</p>
+                <button class="cta-button">Join the Waitlist</button>
+            </div>
+        </div>
+    </section>
+
+    <div style="padding: 3rem; background: #f9fafb;">
+        <div class="container">
+            <h2 style="background: none; padding: 0; margin-bottom: 1rem;">Recommendations</h2>
+            <p style="color: #4B5563; line-height: 1.8; font-size: 1.125rem;">
+                <strong>Option 2 (Side by Side)</strong> or <strong>Option 5 (3D Effect)</strong> work best for professional presentation.<br><br>
+                The current layout (Option 1) makes the image feel disconnected from the text. The image appears too large and dominates the hero section without integrating well with the message.<br><br>
+                <strong>Issues with current layout:</strong><br>
+                • Image is too prominent below the CTA<br>
+                • Creates too much vertical scroll<br>
+                • Text and image feel like separate sections<br>
+                • Image size overwhelms the messaging
+            </p>
+        </div>
+    </div>
+</body>
+</html>

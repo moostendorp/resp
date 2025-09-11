@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        h2 {
+            color: #333;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+        img {
+            border: 2px solid #ddd;
+            margin: 10px 0;
+        }
+        .info {
+            background: #e8f4f8;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        .error {
+            color: red;
+        }
+        .success {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>Hero Image Test Page</h1>
+
+        <h2>Test 1: Direct Path</h2>
+        <div class="info">Path: images/hero-img.png</div>
+        <img src="images/hero-img.png" alt="Test 1" style="max-width: 600px; height: auto;">
+
+        <h2>Test 2: Absolute Path from Public</h2>
+        <div class="info">Path: /images/hero-img.png</div>
+        <img src="/images/hero-img.png" alt="Test 2" style="max-width: 600px; height: auto;">
+
+        <h2>Test 3: Current Directory</h2>
+        <div class="info">Path: ./images/hero-img.png</div>
+        <img src="./images/hero-img.png" alt="Test 3" style="max-width: 600px; height: auto;">
+
+        <h2>Test 4: With Different Extension Check</h2>
+        <div class="info">Testing if file exists with correct extension</div>
+        <img src="images/hero-img.png" alt="PNG test" style="max-width: 300px; height: auto;" onerror="this.nextElementSibling.style.display='block'">
+        <div style="display:none" class="error">❌ PNG not loading</div>
+
+        <h2>Test 5: File Size Check</h2>
+        <div class="info">
+            File: hero-img.png<br>
+            Size: 2.8MB<br>
+            Dimensions: 1536 x 1024<br>
+            Type: PNG image
+        </div>
+
+        <h2>JavaScript Image Load Test</h2>
+        <div id="js-test"></div>
+
+        <h2>Placeholder Generator Image</h2>
+        <div class="info">This should show if placeholder-generator.html exists</div>
+        <img src="images/placeholder-generator.html" alt="Placeholder" style="max-width: 300px; height: auto;" onerror="this.style.display='none'">
+
+        <script>
+            // Test image loading with JavaScript
+            const img = new Image();
+            img.onload = function() {
+                document.getElementById('js-test').innerHTML = '<div class="success">✓ Image loaded successfully via JavaScript</div>';
+            };
+            img.onerror = function() {
+                document.getElementById('js-test').innerHTML = '<div class="error">✗ Image failed to load via JavaScript</div>';
+            };
+            img.src = 'images/hero-img.png';
+
+            // Check all images on page load
+            window.onload = function() {
+                const images = document.querySelectorAll('img');
+                images.forEach((img, index) => {
+                    if (img.complete && img.naturalHeight !== 0) {
+                        console.log(`Image ${index + 1} loaded: ${img.src}`);
+                    } else {
+                        console.error(`Image ${index + 1} failed: ${img.src}`);
+                    }
+                });
+            };
+        </script>
+    </div>
+</body>
+</html>

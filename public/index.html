@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>resp.ph - Your Real Estate Career, From Start to Success</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body>
+        <!-- Header Navigation -->
+        <header class="header">
+            <nav class="container nav">
+                <div class="logo">
+                    <img src="images/resp-logo.png" alt="resp.ph logo" />
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Your Real Estate Career, From Start to Success
+                    </h1>
+                    <p class="hero-subtitle">
+                        From aspiring to licensed professionals — review
+                        classes, CPD seminars, and university programs, all in
+                        one place.
+                    </p>
+                    <button class="cta-button cta-primary">
+                        Join the Waitlist
+                    </button>
+                </div>
+                <div class="hero-image-wrapper">
+                    <img
+                        src="images/hero-img.png"
+                        alt="Young professionals in classroom seminar"
+                        class="hero-image"
+                    />
+                </div>
+            </div>
+        </section>
+
+        <!-- Who It's For Section -->
+        <section class="who-section section">
+            <div class="container">
+                <h2 class="section-title">Who It's For</h2>
+                <div class="who-grid">
+                    <div class="who-card">
+                        <img
+                            src="images/icon-aspiring.svg"
+                            alt="Aspiring Professionals"
+                            class="who-icon"
+                        />
+                        <h3>Aspiring Professionals 🎓</h3>
+                        <p>
+                            Pass your board exams with review classes and
+                            university programs.
+                        </p>
+                    </div>
+                    <div class="who-card">
+                        <img
+                            src="images/icon-licensed.svg"
+                            alt="Licensed Professionals"
+                            class="who-icon"
+                        />
+                        <h3>Licensed Professionals 📜</h3>
+                        <p>
+                            Stay compliant and ahead with accredited CPD
+                            seminars.
+                        </p>
+                    </div>
+                    <div class="who-card">
+                        <img
+                            src="images/icon-provider.svg"
+                            alt="Providers & Universities"
+                            class="who-icon"
+                        />
+                        <h3>Providers & Universities 🏫</h3>
+                        <p>List your courses and degree programs nationwide.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Preview Section -->
+        <section class="preview-section section">
+            <div class="container">
+                <h2 class="section-title">
+                    Here's what we're building — tailored for every role.
+                </h2>
+                <div class="preview-grid">
+                    <div class="preview-card">
+                        <img
+                            src="images/preview-seminar-listing.png"
+                            alt="Seminar Listings Preview"
+                            class="preview-image"
+                        />
+                        <p class="preview-caption">Browse CPD Seminars</p>
+                    </div>
+                    <div class="preview-card">
+                        <img
+                            src="images/preview-review-classes.png"
+                            alt="Review Classes Preview"
+                            class="preview-image"
+                        />
+                        <p class="preview-caption">Find Review Classes</p>
+                    </div>
+                    <div class="preview-card">
+                        <img
+                            src="images/preview-provider-profile.png"
+                            alt="Provider Profile Preview"
+                            class="preview-image"
+                        />
+                        <p class="preview-caption">Provider Microsites</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Signup Section -->
+        <section class="signup-section section" id="signup">
+            <div class="container">
+                <h2 class="section-title">
+                    Be the First to Know When We Launch
+                </h2>
+                <form class="signup-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Name (Optional)</label>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Your name"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="your@email.com"
+                                required
+                            />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="role">Role *</label>
+                            <select id="role" name="role" required>
+                                <option value="">Select your role</option>
+                                <option value="aspiring">
+                                    Aspiring Professional
+                                </option>
+                                <option value="licensed">
+                                    Licensed Professional
+                                </option>
+                                <option value="provider">
+                                    Provider/University
+                                </option>
+                            </select>
+                        </div>
+                        <div
+                            class="form-group"
+                            id="accreditation-group"
+                            style="display: none"
+                        >
+                            <label for="accreditation"
+                                >Accreditation Number (Optional)</label
+                            >
+                            <input
+                                type="text"
+                                id="accreditation"
+                                name="accreditation"
+                                placeholder="Your accreditation number"
+                            />
+                        </div>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="comments"
+                            >Questions/Comments (Optional)</label
+                        >
+                        <textarea
+                            id="comments"
+                            name="comments"
+                            rows="4"
+                            placeholder="Tell us what you're looking for..."
+                        ></textarea>
+                    </div>
+                    <button type="submit" class="cta-button cta-primary">
+                        Join the Waitlist
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Provider CTA Section -->
+        <section class="provider-cta section">
+            <div class="container provider-cta-content">
+                <h2>For Providers and Universities</h2>
+                <p>
+                    Post your seminars, review classes, or degree programs
+                    nationwide.
+                </p>
+                <button class="cta-button cta-secondary">
+                    Become a Provider
+                </button>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-logo">
+                        <img src="images/resp-logo.png" alt="resp.ph logo" />
+                    </div>
+                    <nav class="footer-nav">
+                        <a href="about.html">About Us</a>
+                        <a href="contact.html">Contact</a>
+                        <a
+                            href="https://www.prc.gov.ph"
+                            target="_blank"
+                            rel="noopener"
+                            >PRC Info</a
+                        >
+                        <a href="privacy.html">Privacy</a>
+                        <a href="terms.html">Terms</a>
+                    </nav>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2024 resp.ph. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            // Show/hide accreditation field based on role selection
+            document
+                .getElementById("role")
+                .addEventListener("change", function () {
+                    const accreditationGroup = document.getElementById(
+                        "accreditation-group",
+                    );
+                    if (this.value === "provider") {
+                        accreditationGroup.style.display = "block";
+                    } else {
+                        accreditationGroup.style.display = "none";
+                    }
+                });
+
+            // Smooth scroll to signup form when CTA clicked
+            document.querySelectorAll(".cta-button").forEach((button) => {
+                if (button.textContent.includes("Join the Waitlist")) {
+                    button.addEventListener("click", function (e) {
+                        if (!this.closest("form")) {
+                            e.preventDefault();
+                            document
+                                .getElementById("signup")
+                                .scrollIntoView({ behavior: "smooth" });
+                        }
+                    });
+                }
+            });
+
+            // Form submission handler
+            document
+                .querySelector(".signup-form")
+                .addEventListener("submit", function (e) {
+                    e.preventDefault();
+                    alert(
+                        "Thank you for joining our waitlist! We'll be in touch soon.",
+                    );
+                    this.reset();
+                });
+        </script>
+    </body>
+</html>
