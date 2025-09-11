@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>About - resp.ph</title>
+        <title>About Us - resp.ph</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -11,17 +11,107 @@
             rel="stylesheet"
         />
         <link rel="stylesheet" href="css/style.css" />
+        <style>
+            .about-section {
+                margin-bottom: 3rem;
+                padding: 2rem;
+                background: var(--white);
+                border-radius: 12px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            }
+
+            .about-section h2 {
+                color: var(--primary);
+                font-size: 1.75rem;
+                margin-bottom: 1.5rem;
+                padding-bottom: 0.75rem;
+                border-bottom: 2px solid var(--gray-200);
+            }
+
+            .about-section p {
+                color: var(--text-body);
+                line-height: 1.8;
+                margin-bottom: 1rem;
+            }
+
+            .about-section ul {
+                color: var(--text-body);
+                line-height: 1.8;
+                margin-left: 1.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .about-section li {
+                margin-bottom: 0.75rem;
+            }
+
+            .about-section strong {
+                color: var(--text-dark);
+                font-weight: 600;
+            }
+
+            .founder-message {
+                background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+                border-left: 4px solid var(--primary);
+                padding: 2rem;
+                margin: 3rem 0;
+                border-radius: 8px;
+            }
+
+            .founder-message h2 {
+                color: var(--primary);
+                font-size: 1.75rem;
+                margin-bottom: 1.5rem;
+                border-bottom: none;
+                padding-bottom: 0;
+            }
+
+            .values-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 2rem;
+                margin-top: 1.5rem;
+            }
+
+            .value-item {
+                padding: 1.5rem;
+                background: var(--gray-50);
+                border-radius: 8px;
+                border: 1px solid var(--gray-200);
+            }
+
+            .value-item h3 {
+                color: var(--success);
+                font-size: 1.25rem;
+                margin-bottom: 0.75rem;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .value-item p {
+                color: var(--text-body);
+                line-height: 1.6;
+                margin: 0;
+            }
+
+            .about-section-icon {
+                width: 48px;
+                height: 48px;
+                margin-bottom: 1rem;
+            }
+        </style>
     </head>
     <body>
         <!-- Header Navigation -->
         <header class="header">
             <nav class="container nav">
                 <div class="logo">
-                    <img src="images/resp-logo.png" alt="resp.ph logo" />
+                    <img src="images/resp-logo.svg" alt="resp.ph logo" />
                 </div>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
@@ -41,35 +131,119 @@
         <!-- About Content -->
         <section class="about-content">
             <div class="container">
-                <!-- Our Mission -->
+                <!-- Our Values -->
                 <div class="about-section">
-                    <img
-                        src="images/icon-mission.svg"
-                        alt="Mission Icon"
-                        class="about-section-icon"
-                    />
-                    <h2>Our Mission</h2>
+                    <h2>Our Core Values</h2>
+                    <div class="values-grid">
+                        <div class="value-item">
+                            <h3>🎯 Accessibility</h3>
+                            <p>
+                                Education should be available to everyone,
+                                regardless of location or background
+                            </p>
+                        </div>
+                        <div class="value-item">
+                            <h3>✅ Quality</h3>
+                            <p>
+                                Only PRC-accredited and legitimate educational
+                                providers on our platform
+                            </p>
+                        </div>
+                        <div class="value-item">
+                            <h3>🤝 Community</h3>
+                            <p>
+                                Building connections between learners,
+                                educators, and professionals
+                            </p>
+                        </div>
+                        <div class="value-item">
+                            <h3>💡 Innovation</h3>
+                            <p>
+                                Leveraging technology to simplify and enhance
+                                the learning experience
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Message from the Founder -->
+                <div class="founder-message">
+                    <h2>A Message from the Founder</h2>
                     <p>
-                        We're building the first dedicated platform for every
-                        stage of a real estate career in the Philippines. From
-                        aspiring professionals preparing for board exams to
-                        licensed practitioners seeking CPD compliance, resp.ph
-                        connects you with the education and training you need.
+                        Like you, I've experienced the frustrations of
+                        navigating professional requirements. As a PRC-licensed
+                        Real Estate Broker, Appraiser, and Consultant, I know
+                        what it's like to chase CPD units before renewal —
+                        joining random Viber groups, scrambling to find seminars
+                        at the last minute, and digging through email threads
+                        just to locate certificates. Every renewal season, it
+                        felt like the same headache.
                     </p>
                     <p>
-                        Our platform addresses the fragmented nature of real
-                        estate education in the Philippines. Currently, finding
-                        accredited CPD seminars, quality review classes, or
-                        university programs requires searching through multiple
-                        sources, social media groups, and word-of-mouth
-                        recommendations. We're changing that by creating a
-                        centralized, trustworthy marketplace where education
-                        meets opportunity.
+                        But the challenge isn't only for licensed professionals.
+                        Aspiring practitioners preparing for exams often
+                        struggle to find the right review classes to feel
+                        confident on licensure day. Many practicing agents and
+                        unlicensed persons want to transition into licensed
+                        roles but don't always know where to start. And
+                        providers spend more time on marketing and admin than on
+                        actually teaching and supporting their students.
                     </p>
                     <p>
-                        Our goal is simple: make quality real estate education
-                        accessible, transparent, and easy to find for everyone
-                        in the industry.
+                        <strong>That's why I built this portal.</strong>
+                    </p>
+                    <p>This platform is designed for four groups:</p>
+                    <ul>
+                        <li>
+                            <strong>For aspiring professionals</strong> — to
+                            find trusted review classes that prepare you for
+                            licensure.
+                        </li>
+                        <li>
+                            <strong
+                                >For practicing agents and unlicensed
+                                persons</strong
+                            >
+                            — to explore pathways and programs that help you
+                            transition into licensed roles under RESA.
+                        </li>
+                        <li>
+                            <strong>For licensed practitioners</strong> — to
+                            track CPD credits, store certificates securely, and
+                            get reminders before renewal. No more lost papers or
+                            forgotten deadlines.
+                        </li>
+                        <li>
+                            <strong>For providers and institutions</strong> — to
+                            reach your audience more easily. Instead of
+                            struggling with design tools and endless Facebook
+                            boosting, you can generate a seminar page and poster
+                            instantly, with your accreditation and CPD units
+                            front and center.
+                        </li>
+                    </ul>
+                    <p>
+                        Beyond convenience, this portal also offers a clear and
+                        lawful pathway for unlicensed practitioners to upgrade
+                        into licensed roles under the RESA Law. This is my
+                        contribution to uplifting the real estate profession —
+                        reducing shortcuts, encouraging compliance, and helping
+                        raise the overall standards of practice in the
+                        Philippines.
+                    </p>
+                    <p>
+                        The vision is simple: to make professional growth less
+                        of a burden, and more of a clear path you can manage
+                        with confidence. This isn't just another tech project.
+                        It's built by someone who has faced the same
+                        frustrations, and who understands the standards and
+                        credibility that professionals demand.
+                    </p>
+                    <p>
+                        I hope this portal becomes a tool that saves you time,
+                        reduces stress, and helps you focus on what really
+                        matters: advancing in your profession and serving your
+                        clients.
                     </p>
                 </div>
 
@@ -82,13 +256,7 @@
                         qualified professionals. However, the path from aspiring
                         to licensed practitioner remains challenging:
                     </p>
-                    <ul
-                        style="
-                            color: #6b7280;
-                            line-height: 1.8;
-                            margin-left: 20px;
-                        "
-                    >
+                    <ul>
                         <li>
                             <strong>Board Exam Preparation:</strong> Finding
                             quality review centers and materials is often based
@@ -116,183 +284,48 @@
                     </p>
                 </div>
 
-                <!-- Our Team -->
-                <div class="about-section">
-                    <img
-                        src="images/icon-team.svg"
-                        alt="Team Icon"
-                        class="about-section-icon"
-                    />
-                    <h2>Our Team</h2>
-                    <p>
-                        resp.ph is created by a diverse team of real estate
-                        professionals, educators, and technology experts who
-                        understand the unique challenges of the Philippine real
-                        estate industry.
-                    </p>
-                    <p>Our founding team includes:</p>
-                    <div class="team-grid">
-                        <div class="team-member">
-                            <img
-                                src="images/team-member1.jpg"
-                                alt="Maria Santos"
-                            />
-                            <h3>Maria Santos</h3>
-                            <p>Licensed Real Estate Broker</p>
-                            <p style="font-size: 0.875rem">
-                                15+ years in Philippine real estate
-                            </p>
-                        </div>
-                        <div class="team-member">
-                            <img
-                                src="images/team-member2.jpg"
-                                alt="Juan dela Cruz"
-                            />
-                            <h3>Juan dela Cruz</h3>
-                            <p>Education Technology Specialist</p>
-                            <p style="font-size: 0.875rem">
-                                Former PRC accredited provider
-                            </p>
-                        </div>
-                    </div>
-                    <p>
-                        Together, we bring deep industry knowledge and a shared
-                        commitment to elevating the standards of real estate
-                        education in the Philippines.
-                    </p>
-                </div>
-
-                <!-- Developer's Message -->
-                <div class="about-section">
-                    <div class="developer-message">
-                        <div class="developer-header">
-                            <img
-                                src="images/dev-avatar.png"
-                                alt="Developer Avatar"
-                                class="developer-avatar"
-                            />
-                            <h3>A Message from Our Lead Developer</h3>
-                        </div>
-                        <p>
-                            "As a licensed real estate professional myself, I've
-                            experienced the frustration of searching for CPD
-                            seminars at the last minute, comparing review
-                            centers without reliable reviews, and missing out on
-                            valuable training opportunities simply because I
-                            didn't know they existed.
-                        </p>
-                        <p>
-                            resp.ph is my answer to these challenges. We're not
-                            just building another website – we're creating a
-                            community-driven platform that respects both
-                            learners and educators. Every feature is designed
-                            with real-world use cases in mind, from
-                            mobile-friendly seminar bookings for busy
-                            professionals to streamlined accreditation
-                            verification for providers.
-                        </p>
-                        <p>
-                            This platform is built by practitioners, for
-                            practitioners. We're committed to transparency, fair
-                            pricing, and continuous improvement based on your
-                            feedback."
-                        </p>
-                        <p style="text-align: right; font-style: normal">
-                            <strong
-                                >- Carlo Reyes, Lead Developer &
-                                Co-Founder</strong
-                            >
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Our Values -->
-                <div class="about-section">
-                    <h2>Our Core Values</h2>
-                    <div
+                <!-- Call to Action -->
+                <div
+                    class="about-section"
+                    style="
+                        text-align: center;
+                        background: linear-gradient(
+                            135deg,
+                            #1e3a8a 0%,
+                            #2563eb 100%
+                        );
+                        color: white;
+                    "
+                >
+                    <h2 style="color: white; border-bottom: none">
+                        Join Us in Transforming Real Estate Education
+                    </h2>
+                    <p
                         style="
-                            display: grid;
-                            grid-template-columns: repeat(
-                                auto-fit,
-                                minmax(250px, 1fr)
-                            );
-                            gap: 2rem;
-                            margin-top: 1.5rem;
+                            color: white;
+                            max-width: 700px;
+                            margin: 0 auto 2rem;
                         "
                     >
-                        <div>
-                            <h3 style="color: #059669">🎯 Accessibility</h3>
-                            <p>
-                                Education should be available to everyone,
-                                regardless of location or background
-                            </p>
-                        </div>
-                        <div>
-                            <h3 style="color: #059669">✅ Quality</h3>
-                            <p>
-                                Only PRC-accredited and legitimate educational
-                                providers on our platform
-                            </p>
-                        </div>
-                        <div>
-                            <h3 style="color: #059669">🤝 Community</h3>
-                            <p>
-                                Building connections between learners,
-                                educators, and professionals
-                            </p>
-                        </div>
-                        <div>
-                            <h3 style="color: #059669">💡 Innovation</h3>
-                            <p>
-                                Leveraging technology to simplify and enhance
-                                the learning experience
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Future Vision -->
-                <div class="about-section">
-                    <h2>Our Vision for the Future</h2>
-                    <p>
-                        While we're starting with connecting learners to
-                        educational opportunities, our vision extends beyond a
-                        simple marketplace:
+                        Whether you're starting your journey or advancing your
+                        career, resp.ph is here to support your professional
+                        growth.
                     </p>
-                    <ul
+                    <a
+                        href="index.html#signup"
+                        class="cta-button"
                         style="
-                            color: #6b7280;
-                            line-height: 1.8;
-                            margin-left: 20px;
+                            background: white;
+                            color: var(--primary);
+                            padding: 1rem 2rem;
+                            border-radius: 8px;
+                            text-decoration: none;
+                            display: inline-block;
+                            font-weight: 600;
                         "
                     >
-                        <li>
-                            <strong>Career Tracking:</strong> Personal
-                            dashboards to track CPD units, certifications, and
-                            career milestones
-                        </li>
-                        <li>
-                            <strong>Community Features:</strong> Forums, study
-                            groups, and mentorship connections
-                        </li>
-                        <li>
-                            <strong>Resource Library:</strong> Curated study
-                            materials, practice exams, and industry updates
-                        </li>
-                        <li>
-                            <strong>Regional Expansion:</strong> Covering all
-                            regions of the Philippines with local provider
-                            partnerships
-                        </li>
-                        <li>
-                            <strong>Mobile App:</strong> Full-featured mobile
-                            application for learning on the go
-                        </li>
-                    </ul>
-                    <p>
-                        Join us in building the future of real estate education
-                        in the Philippines.
-                    </p>
+                        Join the Waitlist
+                    </a>
                 </div>
             </div>
         </section>
@@ -301,21 +334,55 @@
         <footer class="footer">
             <div class="container">
                 <div class="footer-content">
-                    <div class="footer-logo">
-                        <img src="images/resp-logo.png" alt="resp.ph logo" />
+                    <div class="footer-grid">
+                        <div class="footer-column">
+                            <div class="footer-logo">
+                                <img
+                                    src="images/resp-logo.svg"
+                                    alt="resp.ph logo"
+                                />
+                            </div>
+                            <p class="footer-tagline">
+                                Building the future of real estate education in
+                                the Philippines
+                            </p>
+                        </div>
+
+                        <div class="footer-column">
+                            <h4>Navigation</h4>
+                            <ul class="footer-links">
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="about.html">About Us</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="footer-column">
+                            <h4>Resources</h4>
+                            <ul class="footer-links">
+                                <li>
+                                    <a
+                                        href="https://www.prc.gov.ph"
+                                        target="_blank"
+                                        rel="noopener"
+                                        >PRC Info</a
+                                    >
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="footer-column">
+                            <h4>Legal</h4>
+                            <ul class="footer-links">
+                                <li>
+                                    <a href="privacy.html">Privacy Policy</a>
+                                </li>
+                                <li>
+                                    <a href="terms.html">Terms of Service</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <nav class="footer-nav">
-                        <a href="about.html">About Us</a>
-                        <a href="contact.html">Contact</a>
-                        <a
-                            href="https://www.prc.gov.ph"
-                            target="_blank"
-                            rel="noopener"
-                            >PRC Info</a
-                        >
-                        <a href="privacy.html">Privacy</a>
-                        <a href="terms.html">Terms</a>
-                    </nav>
                 </div>
                 <div class="footer-bottom">
                     <p>&copy; 2024 resp.ph. All rights reserved.</p>
