@@ -68,9 +68,18 @@
 
             .values-grid {
                 display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                grid-template-columns: repeat(2, 1fr);
                 gap: 2rem;
                 margin-top: 1.5rem;
+                max-width: 800px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            @media (max-width: 768px) {
+                .values-grid {
+                    grid-template-columns: 1fr;
+                }
             }
 
             .value-item {
@@ -78,6 +87,7 @@
                 background: var(--gray-50);
                 border-radius: 8px;
                 border: 1px solid var(--gray-200);
+                text-align: center;
             }
 
             .value-item h3 {
@@ -132,8 +142,8 @@
         <section class="about-content">
             <div class="container">
                 <!-- Our Values -->
-                <div class="about-section">
-                    <h2>Our Core Values</h2>
+                <div class="about-section" style="text-align: center">
+                    <h2 style="text-align: center">Our Core Values</h2>
                     <div class="values-grid">
                         <div class="value-item">
                             <h3>🎯 Accessibility</h3>
