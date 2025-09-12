@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Header Background Options - resp.ph</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="css/style.css" />
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                background: #f9fafb;
+            }
+
+            .option-container {
+                margin-bottom: 2rem;
+            }
+
+            .option-label {
+                padding: 1rem 2rem;
+                background: white;
+                font-weight: 600;
+                border-bottom: 2px solid #e5e7eb;
+                color: #111827;
+            }
+
+            .preview-section {
+                padding: 3rem 2rem;
+                background: #f3f4f6;
+                min-height: 300px;
+            }
+
+            .preview-section h2 {
+                color: #111827;
+                margin-bottom: 1rem;
+            }
+
+            .preview-section p {
+                color: #4b5563;
+                max-width: 600px;
+            }
+
+            /* Remove all logo backgrounds for transparent logo */
+            .logo a {
+                background: transparent !important;
+                border: none !important;
+                padding: 0 !important;
+                box-shadow: none !important;
+            }
+
+            .logo img {
+                height: 80px;
+                width: auto;
+                object-fit: contain;
+            }
+
+            /* Option 1: Dark Blue Gradient */
+            .header-option-1 {
+                background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+            }
+
+            .header-option-1 .nav-links a {
+                color: #ffffff;
+                opacity: 0.9;
+            }
+
+            .header-option-1 .nav-links a:hover {
+                color: #ffffff;
+                background-color: rgba(255, 255, 255, 0.15);
+                opacity: 1;
+            }
+
+            .header-option-1 .nav-links a.active {
+                background-color: rgba(255, 255, 255, 0.2);
+                color: #ffffff;
+            }
+
+            /* Option 2: Dark Gray */
+            .header-option-2 {
+                background: #1f2937;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            }
+
+            .header-option-2 .nav-links a {
+                color: #f3f4f6;
+            }
+
+            .header-option-2 .nav-links a:hover {
+                color: #ffffff;
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+
+            .header-option-2 .nav-links a.active {
+                background-color: #dc2626;
+                color: #ffffff;
+            }
+
+            /* Option 3: Navy Blue */
+            .header-option-3 {
+                background: #0f172a;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            }
+
+            .header-option-3 .nav-links a {
+                color: #e2e8f0;
+            }
+
+            .header-option-3 .nav-links a:hover {
+                color: #ffffff;
+                background-color: #dc2626;
+            }
+
+            .header-option-3 .nav-links a.active {
+                background-color: #dc2626;
+                color: #ffffff;
+            }
+
+            /* Option 4: Charcoal Black */
+            .header-option-4 {
+                background: #18181b;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            }
+
+            .header-option-4 .nav-links a {
+                color: #fbbf24; /* Yellow text to match logo */
+                font-weight: 600;
+            }
+
+            .header-option-4 .nav-links a:hover {
+                color: #18181b;
+                background-color: #fbbf24;
+            }
+
+            .header-option-4 .nav-links a.active {
+                background-color: #fbbf24;
+                color: #18181b;
+            }
+
+            /* Option 5: Gradient Blue to Red */
+            .header-option-5 {
+                background: linear-gradient(90deg, #1e3a8a 0%, #dc2626 100%);
+                box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+            }
+
+            .header-option-5 .nav-links a {
+                color: #ffffff;
+                font-weight: 500;
+            }
+
+            .header-option-5 .nav-links a:hover {
+                background-color: rgba(255, 255, 255, 0.2);
+            }
+
+            .header-option-5 .nav-links a.active {
+                background-color: #fbbf24;
+                color: #18181b;
+            }
+
+            /* Option 6: Deep Purple */
+            .header-option-6 {
+                background: linear-gradient(135deg, #312e81 0%, #1e1b4b 100%);
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            }
+
+            .header-option-6 .nav-links a {
+                color: #f9fafb;
+            }
+
+            .header-option-6 .nav-links a:hover {
+                color: #312e81;
+                background-color: #fbbf24;
+            }
+
+            .header-option-6 .nav-links a.active {
+                background-color: #fbbf24;
+                color: #312e81;
+            }
+
+            /* Option 7: Dark Teal */
+            .header-option-7 {
+                background: linear-gradient(135deg, #134e4a 0%, #0f766e 100%);
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+            }
+
+            .header-option-7 .nav-links a {
+                color: #f0fdfa;
+            }
+
+            .header-option-7 .nav-links a:hover {
+                color: #134e4a;
+                background-color: #fbbf24;
+            }
+
+            .header-option-7 .nav-links a.active {
+                background-color: #fbbf24;
+                color: #134e4a;
+            }
+
+            /* Option 8: Slate with Red Accent */
+            .header-option-8 {
+                background: #334155;
+                border-bottom: 3px solid #dc2626;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            }
+
+            .header-option-8 .nav-links a {
+                color: #f1f5f9;
+            }
+
+            .header-option-8 .nav-links a:hover {
+                color: #ffffff;
+                background-color: #dc2626;
+            }
+
+            .header-option-8 .nav-links a.active {
+                background-color: #dc2626;
+                color: #ffffff;
+            }
+
+            /* Option 9: Original White (for comparison) */
+            .header-option-9 {
+                background: #ffffff;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            }
+
+            .header-option-9 .nav-links a {
+                color: #1e3a8a;
+            }
+
+            .header-option-9 .nav-links a:hover {
+                color: #1e3a8a;
+                background-color: #eff6ff;
+            }
+
+            .header-option-9 .nav-links a.active {
+                background-color: #1e3a8a;
+                color: #ffffff;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Option 1: Dark Blue Gradient -->
+        <div class="option-container">
+            <div class="option-label">
+                Option 1: Professional Dark Blue Gradient ⭐ RECOMMENDED
+            </div>
+            <header class="header header-option-1">
+                <nav class="container nav">
+                    <div class="logo">
+                        <a href="#">
+                            <img src="images/resplogo.png" alt="resp.ph logo" />
+                        </a>
+                    </div>
+                    <ul class="nav-links">
+                        <li><a href="#" class="active">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <div class="preview-section">
+                <h2>Dark Blue Gradient Background</h2>
+                <p>
+                    Professional gradient from deep blue to navy. Your yellow
+                    logo will pop beautifully against this dark background.
+                    White text ensures excellent readability.
+                </p>
+            </div>
+        </div>
+
+        <!-- Option 2: Dark Gray -->
+        <div class="option-container">
+            <div class="option-label">Option 2: Modern Dark Gray</div>
+            <header class="header header-option-2">
+                <nav class="container nav">
+                    <div class="logo">
+                        <a href="#">
+                            <img src="images/resplogo.png" alt="resp.ph logo" />
+                        </a>
+                    </div>
+                    <ul class="nav-links">
+                        <li><a href="#" class="active">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <div class="preview-section">
+                <h2>Dark Gray Background</h2>
+                <p>
+                    Sophisticated dark gray. Creates strong contrast with the
+                    yellow logo. Red accent for active states.
+                </p>
+            </div>
+        </div>
+
+        <!-- Option 3: Navy Blue -->
+        <div class="option-container">
+            <div class="option-label">Option 3: Deep Navy Blue</div>
+            <header class="header header-option-3">
+                <nav class="container nav">
+                    <div class="logo">
+                        <a href="#">
+                            <img src="images/resplogo.png" alt="resp.ph logo" />
+                        </a>
+                    </div>
+                    <ul class="nav-links">
+                        <li><a href="#" class="active">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <div class="preview-section">
+                <h2>Navy Background</h2>
+                <p>
+                    Very deep navy blue, almost black. Excellent contrast for
+                    yellow logo with red hover states.
+                </p>
+            </div>
+        </div>
+
+        <!-- Option 4: Charcoal Black -->
+        <div class="option-container">
+            <div class="option-label">Option 4: Charcoal with Yellow Text</div>
+            <header class="header header-option-4">
+                <nav class="container nav">
+                    <div class="logo">
+                        <a href="#">
+                            <img src="images/resplogo.png" alt="resp.ph logo" />
+                        </a>
+                    </div>
+                    <ul class="nav-links">
+                        <li><a href="#" class="active">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <div class="preview-section">
+                <h2>Charcoal with Yellow Accents</h2>
+                <p>
+                    Near-black background with yellow text to match your logo.
+                    Creates a cohesive yellow theme throughout the header.
+                </p>
+            </div>
+        </div>
+
+        <!-- Option 5: Gradient Blue to Red -->
+        <div class="option-container">
+            <div class="option-label">
+                Option 5: Blue to Red Gradient (Bold)
+            </div>
+            <header class="header header-option-5">
+                <nav class="container nav">
+                    <div class="logo">
+                        <a href="#">
+                            <img src="images/resplogo.png" alt="resp.ph logo" />
+                        </a>
+                    </div>
+                    <ul class="nav-links">
+                        <li><a href="#" class="active">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <div class="preview-section">
+                <h2>Dynamic Gradient</h2>
+                <p>
+                    Bold gradient from blue to red. Yellow active states tie in
+                    with the logo.
+                </p>
+            </div>
+        </div>
+
+        <!-- Option 6: Deep Purple -->
+        <div class="option-container">
+            <div class="option-label">Option 6: Deep Purple Gradient</div>
+            <header class="header header-option-6">
+                <nav class="container nav">
+                    <div class="logo">
+                        <a href="#">
+                            <img src="images/resplogo.png" alt="resp.ph logo" />
+                        </a>
+                    </div>
+                    <ul class="nav-links">
+                        <li><a href="#" class="active">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <div class="preview-section">
+                <h2>Purple Gradient</h2>
+                <p>
+                    Rich purple gradient for a unique look. Yellow logo stands
+                    out dramatically.
+                </p>
+            </div>
+        </div>
+
+        <!-- Option 7: Dark Teal -->
+        <div class="option-container">
+            <div class="option-label">Option 7: Dark Teal Gradient</div>
+            <header class="header header-option-7">
+                <nav class="container nav">
+                    <div class="logo">
+                        <a href="#">
+                            <img src="images/resplogo.png" alt="resp.ph logo" />
+                        </a>
+                    </div>
+                    <ul class="nav-links">
+                        <li><a href="#" class="active">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <div class="preview-section">
+                <h2>Teal Gradient</h2>
+                <p>
+                    Dark teal creates an unexpected but professional contrast
+                    with yellow.
+                </p>
+            </div>
+        </div>
+
+        <!-- Option 8: Slate with Red Accent -->
+        <div class="option-container">
+            <div class="option-label">
+                Option 8: Slate Gray with Red Bottom Border
+            </div>
+            <header class="header header-option-8">
+                <nav class="container nav">
+                    <div class="logo">
+                        <a href="#">
+                            <img src="images/resplogo.png" alt="resp.ph logo" />
+                        </a>
+                    </div>
+                    <ul class="nav-links">
+                        <li><a href="#" class="active">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <div class="preview-section">
+                <h2>Slate with Red Accent</h2>
+                <p>
+                    Medium slate gray with red border accent. Balanced between
+                    light and dark.
+                </p>
+            </div>
+        </div>
+
+        <!-- Option 9: Original White (for comparison) -->
+        <div class="option-container">
+            <div class="option-label">
+                Option 9: Original White (Current - for comparison)
+            </div>
+            <header class="header header-option-9">
+                <nav class="container nav">
+                    <div class="logo">
+                        <a href="#">
+                            <img src="images/resplogo.png" alt="resp.ph logo" />
+                        </a>
+                    </div>
+                    <ul class="nav-links">
+                        <li><a href="#" class="active">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <div class="preview-section">
+                <h2>Current White Background</h2>
+                <p>
+                    This is your current header for comparison. As you noted,
+                    the yellow logo doesn't stand out well on white.
+                </p>
+            </div>
+        </div>
+
+        <div style="padding: 3rem 2rem; background: white; text-align: center">
+            <h2 style="color: #111827; margin-bottom: 1rem">Recommendation</h2>
+            <p
+                style="
+                    color: #4b5563;
+                    max-width: 800px;
+                    margin: 0 auto;
+                    line-height: 1.8;
+                "
+            >
+                <strong>Best options for your transparent yellow logo:</strong
+                ><br /><br />
+                <strong style="color: #1e3a8a; font-size: 1.1rem"
+                    >Option 1 (Dark Blue Gradient)</strong
+                >
+                - Professional, trustworthy, excellent contrast<br />
+                <strong>Option 2 (Dark Gray)</strong> - Modern, neutral,
+                versatile<br />
+                <strong>Option 4 (Charcoal with Yellow)</strong> - Cohesive
+                yellow theme throughout<br /><br />
+                All dark backgrounds will make your yellow logo highly visible
+                without needing any container or border.
+            </p>
+        </div>
+    </body>
+</html>

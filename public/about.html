@@ -11,118 +11,19 @@
             rel="stylesheet"
         />
         <link rel="stylesheet" href="css/style.css" />
-        <style>
-            .about-section {
-                margin-bottom: 3rem;
-                padding: 2rem;
-                background: var(--white);
-                border-radius: 12px;
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            }
-
-            .about-section h2 {
-                color: var(--primary);
-                font-size: 1.75rem;
-                margin-bottom: 1.5rem;
-                padding-bottom: 0.75rem;
-                border-bottom: 2px solid var(--gray-200);
-            }
-
-            .about-section p {
-                color: var(--text-body);
-                line-height: 1.8;
-                margin-bottom: 1rem;
-            }
-
-            .about-section ul {
-                color: var(--text-body);
-                line-height: 1.8;
-                margin-left: 1.5rem;
-                margin-bottom: 1rem;
-            }
-
-            .about-section li {
-                margin-bottom: 0.75rem;
-            }
-
-            .about-section strong {
-                color: var(--text-dark);
-                font-weight: 600;
-            }
-
-            .founder-message {
-                background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
-                border-left: 4px solid var(--primary);
-                padding: 2rem;
-                margin: 3rem 0;
-                border-radius: 8px;
-            }
-
-            .founder-message h2 {
-                color: var(--primary);
-                font-size: 1.75rem;
-                margin-bottom: 1.5rem;
-                border-bottom: none;
-                padding-bottom: 0;
-            }
-
-            .values-grid {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 2rem;
-                margin-top: 1.5rem;
-                max-width: 800px;
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            @media (max-width: 768px) {
-                .values-grid {
-                    grid-template-columns: 1fr;
-                }
-            }
-
-            .value-item {
-                padding: 1.5rem;
-                background: var(--gray-50);
-                border-radius: 8px;
-                border: 1px solid var(--gray-200);
-                text-align: center;
-            }
-
-            .value-item h3 {
-                color: var(--success);
-                font-size: 1.25rem;
-                margin-bottom: 0.75rem;
-                display: flex;
-                align-items: center;
-                gap: 0.5rem;
-            }
-
-            .value-item p {
-                color: var(--text-body);
-                line-height: 1.6;
-                margin: 0;
-            }
-
-            .about-section-icon {
-                width: 48px;
-                height: 48px;
-                margin-bottom: 1rem;
-            }
-        </style>
     </head>
     <body>
         <!-- Header Navigation -->
         <header class="header">
             <nav class="container nav">
                 <div class="logo">
-                    <img src="images/resplogo.png" alt="resp.ph logo" />
+                    <a href="index.html">
+                        <img src="images/resplogo.png" alt="resp.ph logo" />
+                    </a>
                 </div>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html" class="active">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="about.html" class="active">About Us</a></li>
                 </ul>
             </nav>
         </header>
@@ -373,7 +274,11 @@
                             <ul class="footer-links">
                                 <li><a href="index.html">Home</a></li>
                                 <li><a href="about.html">About Us</a></li>
-                                <li><a href="contact.html">Contact</a></li>
+                                <li>
+                                    <a href="mailto:support@resp.ph"
+                                        >Email Us</a
+                                    >
+                                </li>
                             </ul>
                         </div>
 

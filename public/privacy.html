@@ -11,143 +11,19 @@
             rel="stylesheet"
         />
         <link rel="stylesheet" href="css/style.css" />
-        <style>
-            .privacy-hero {
-                background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
-                padding: 4rem 0;
-                text-align: center;
-                color: white;
-                position: relative;
-            }
-
-            .privacy-hero::before {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: linear-gradient(
-                    180deg,
-                    rgba(0, 0, 0, 0.1) 0%,
-                    rgba(0, 0, 0, 0) 100%
-                );
-                pointer-events: none;
-            }
-
-            .privacy-hero .container {
-                position: relative;
-                z-index: 1;
-            }
-
-            .privacy-hero h1 {
-                color: white;
-                font-size: 2.5rem;
-                font-weight: 700;
-                margin-bottom: 1rem;
-                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-            }
-
-            .privacy-hero p {
-                font-size: 1.25rem;
-                color: var(--white);
-                font-weight: 300;
-                max-width: 600px;
-                margin: 0 auto;
-            }
-
-            .privacy-hero p strong {
-                font-weight: 600;
-                color: #93bbfc;
-            }
-
-            .privacy-content {
-                padding: 4rem 0;
-                max-width: 800px;
-                margin: 0 auto;
-            }
-
-            .privacy-content h2 {
-                color: var(--primary);
-                font-size: 1.75rem;
-                margin-top: 3rem;
-                margin-bottom: 1.5rem;
-                padding-bottom: 0.5rem;
-                border-bottom: 2px solid var(--gray-200);
-            }
-
-            .privacy-content h3 {
-                color: var(--text-dark);
-                font-size: 1.25rem;
-                margin-top: 2rem;
-                margin-bottom: 1rem;
-            }
-
-            .privacy-content p {
-                color: var(--text-body);
-                line-height: 1.8;
-                margin-bottom: 1rem;
-            }
-
-            .privacy-content ul {
-                color: var(--text-body);
-                line-height: 1.8;
-                margin-bottom: 1.5rem;
-                padding-left: 2rem;
-            }
-
-            .privacy-content li {
-                margin-bottom: 0.5rem;
-            }
-
-            .privacy-content strong {
-                color: var(--text-dark);
-                font-weight: 600;
-            }
-
-            .privacy-content em {
-                color: var(--gray-600);
-            }
-
-            .last-updated {
-                background: var(--gray-50);
-                border-left: 4px solid var(--primary);
-                padding: 1rem;
-                margin-bottom: 2rem;
-                border-radius: 0.25rem;
-            }
-
-            .data-table {
-                width: 100%;
-                border-collapse: collapse;
-                margin: 1.5rem 0;
-            }
-
-            .data-table th,
-            .data-table td {
-                text-align: left;
-                padding: 0.75rem;
-                border-bottom: 1px solid var(--gray-200);
-            }
-
-            .data-table th {
-                background: var(--gray-50);
-                font-weight: 600;
-                color: var(--text-dark);
-            }
-        </style>
     </head>
     <body>
         <!-- Header Navigation -->
         <header class="header">
             <nav class="container nav">
                 <div class="logo">
-                    <img src="images/resplogo.png" alt="resp.ph logo" />
+                    <a href="index.html">
+                        <img src="images/resplogo.png" alt="resp.ph logo" />
+                    </a>
                 </div>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="about.html">About Us</a></li>
                 </ul>
             </nav>
         </header>
@@ -613,7 +489,11 @@
                             <ul class="footer-links">
                                 <li><a href="index.html">Home</a></li>
                                 <li><a href="about.html">About Us</a></li>
-                                <li><a href="contact.html">Contact</a></li>
+                                <li>
+                                    <a href="mailto:support@resp.ph"
+                                        >Email Us</a
+                                    >
+                                </li>
                             </ul>
                         </div>
 
