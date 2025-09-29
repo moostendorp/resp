@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard UI Options - Training Provider Portal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Design System */
+            --primary: #0066CC;
+            --primary-light: #E6F2FF;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --danger: #EF4444;
+            --gray-50: #F9FAFB;
+            --gray-100: #F3F4F6;
+            --gray-200: #E5E7EB;
+            --gray-300: #D1D5DB;
+            --gray-500: #6B7280;
+            --gray-700: #374151;
+            --gray-900: #111827;
+
+            --space-1: 4px;
+            --space-2: 8px;
+            --space-3: 12px;
+            --space-4: 16px;
+            --space-5: 20px;
+            --space-6: 24px;
+            --space-8: 32px;
+
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 16px;
+
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: var(--gray-50);
+            color: var(--gray-900);
+            line-height: 1.6;
+        }
+
+        /* Option Selector */
+        .option-selector {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            box-shadow: var(--shadow-md);
+            z-index: 1000;
+            padding: var(--space-4);
+        }
+
+        .option-buttons {
+            display: flex;
+            gap: var(--space-3);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .option-btn {
+            padding: var(--space-3) var(--space-5);
+            background: white;
+            border: 2px solid var(--gray-300);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .option-btn:hover {
+            border-color: var(--primary);
+            transform: translateY(-1px);
+        }
+
+        .option-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Dashboard Containers */
+        .dashboard-option {
+            display: none;
+            padding-top: 80px;
+            min-height: 100vh;
+        }
+
+        .dashboard-option.active {
+            display: block;
+        }
+
+        /* ========== OPTION 1: MODERN SAAS ========== */
+        .modern-saas {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            height: calc(100vh - 80px);
+        }
+
+        .modern-sidebar {
+            background: white;
+            border-right: 1px solid var(--gray-200);
+            padding: var(--space-5);
+        }
+
+        .modern-sidebar h3 {
+            font-size: 14px;
+            text-transform: uppercase;
+            color: var(--gray-500);
+            margin-bottom: var(--space-3);
+            font-weight: 600;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            padding: var(--space-3) var(--space-3);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--space-2);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .nav-item:hover {
+            background: var(--gray-100);
+        }
+
+        .nav-item.active {
+            background: var(--primary-light);
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .nav-icon {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modern-main {
+            padding: var(--space-6);
+            overflow-y: auto;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-5);
+            margin-bottom: var(--space-8);
+        }
+
+        .metric-card {
+            background: white;
+            padding: var(--space-5);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--success));
+        }
+
+        .metric-label {
+            font-size: 14px;
+            color: var(--gray-500);
+            margin-bottom: var(--space-2);
+        }
+
+        .metric-value {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: var(--space-2);
+        }
+
+        .metric-trend {
+            font-size: 14px;
+            color: var(--success);
+        }
+
+        .data-table {
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+
+        .table-header {
+            padding: var(--space-5);
+            border-bottom: 1px solid var(--gray-200);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-md);
+            padding: var(--space-2) var(--space-3);
+            width: 300px;
+        }
+
+        .search-bar input {
+            border: none;
+            background: none;
+            outline: none;
+            width: 100%;
+            margin-left: var(--space-2);
+        }
+
+        /* ========== OPTION 2: COMMAND CENTER ========== */
+        .command-center {
+            display: flex;
+            flex-direction: column;
+            height: calc(100vh - 80px);
+        }
+
+        .command-nav {
+            background: var(--gray-900);
+            color: white;
+            padding: var(--space-3) var(--space-6);
+            display: flex;
+            align-items: center;
+            gap: var(--space-6);
+        }
+
+        .command-palette {
+            background: var(--gray-700);
+            border: 1px solid var(--gray-500);
+            border-radius: var(--radius-md);
+            padding: var(--space-2) var(--space-3);
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+            cursor: pointer;
+            min-width: 200px;
+        }
+
+        .shortcut {
+            background: var(--gray-900);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-family: monospace;
+        }
+
+        .command-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-4);
+            padding: var(--space-4);
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .widget {
+            background: white;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            padding: var(--space-4);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .widget-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-3);
+            padding-bottom: var(--space-3);
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .kanban-column {
+            background: var(--gray-50);
+            border-radius: var(--radius-md);
+            padding: var(--space-3);
+            min-height: 200px;
+        }
+
+        .kanban-card {
+            background: white;
+            padding: var(--space-3);
+            border-radius: var(--radius-sm);
+            margin-bottom: var(--space-2);
+            box-shadow: var(--shadow-sm);
+            cursor: move;
+        }
+
+        /* ========== OPTION 3: MOBILE-FIRST ========== */
+        .mobile-first {
+            max-width: 768px;
+            margin: 0 auto;
+            padding: var(--space-4);
+            padding-bottom: 80px;
+        }
+
+        .mobile-header {
+            background: white;
+            padding: var(--space-4);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-4);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .mobile-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: var(--space-5);
+            margin-bottom: var(--space-4);
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s;
+        }
+
+        .mobile-card:active {
+            transform: scale(0.98);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-3);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: var(--space-1) var(--space-2);
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .badge-success {
+            background: var(--success);
+            color: white;
+        }
+
+        .badge-warning {
+            background: var(--warning);
+            color: white;
+        }
+
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            border-top: 1px solid var(--gray-200);
+            display: flex;
+            justify-content: space-around;
+            padding: var(--space-3);
+            box-shadow: 0 -4px 6px rgba(0,0,0,0.05);
+        }
+
+        .bottom-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-1);
+            color: var(--gray-500);
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .bottom-nav-item.active {
+            color: var(--primary);
+        }
+
+        .fab {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-lg);
+            cursor: pointer;
+            font-size: 24px;
+            transition: transform 0.2s;
+        }
+
+        .fab:hover {
+            transform: scale(1.1);
+        }
+
+        /* ========== OPTION 4: ANALYTICS ========== */
+        .analytics-dashboard {
+            padding: var(--space-6);
+        }
+
+        .tab-nav {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: var(--space-2);
+            display: flex;
+            gap: var(--space-2);
+            margin-bottom: var(--space-6);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .tab {
+            padding: var(--space-3) var(--space-5);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+
+        .tab:hover {
+            background: var(--gray-50);
+        }
+
+        .tab.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .chart-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: var(--space-5);
+            margin-bottom: var(--space-6);
+        }
+
+        .chart-card {
+            background: white;
+            padding: var(--space-5);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .chart-placeholder {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--gray-100) 100%);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-500);
+            margin-top: var(--space-4);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-4);
+        }
+
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            padding: var(--space-3);
+            background: var(--gray-50);
+            border-radius: var(--radius-md);
+        }
+
+        .heatmap {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: var(--space-1);
+            margin-top: var(--space-4);
+        }
+
+        .heatmap-cell {
+            aspect-ratio: 1;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: white;
+            font-weight: 600;
+        }
+
+        .heat-low { background: #93C5FD; }
+        .heat-medium { background: #3B82F6; }
+        .heat-high { background: #1E40AF; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .modern-saas {
+                grid-template-columns: 1fr;
+            }
+            .modern-sidebar {
+                display: none;
+            }
+            .command-grid {
+                grid-template-columns: 1fr;
+            }
+            .chart-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Option Selector -->
+    <div class="option-selector">
+        <div class="option-buttons">
+            <button class="option-btn active" onclick="showOption('modern')">
+                Option 1: Modern SaaS
+            </button>
+            <button class="option-btn" onclick="showOption('command')">
+                Option 2: Command Center
+            </button>
+            <button class="option-btn" onclick="showOption('mobile')">
+                Option 3: Mobile-First
+            </button>
+            <button class="option-btn" onclick="showOption('analytics')">
+                Option 4: Analytics Focus
+            </button>
+        </div>
+    </div>
+
+    <!-- Option 1: Modern SaaS Dashboard -->
+    <div class="dashboard-option active" id="modern">
+        <div class="modern-saas">
+            <aside class="modern-sidebar">
+                <h3>Navigation</h3>
+                <div class="nav-item active">
+                    <span class="nav-icon">📊</span>
+                    <span>Dashboard</span>
+                </div>
+                <div class="nav-item">
+                    <span class="nav-icon">📚</span>
+                    <span>Seminars</span>
+                </div>
+                <div class="nav-item">
+                    <span class="nav-icon">👥</span>
+                    <span>Attendees</span>
+                </div>
+                <div class="nav-item">
+                    <span class="nav-icon">👨‍🏫</span>
+                    <span>Lecturers</span>
+                </div>
+                <div class="nav-item">
+                    <span class="nav-icon">💰</span>
+                    <span>Payments</span>
+                </div>
+                <h3 style="margin-top: var(--space-6);">Account</h3>
+                <div class="nav-item">
+                    <span class="nav-icon">⚙️</span>
+                    <span>Settings</span>
+                </div>
+                <div class="nav-item">
+                    <span class="nav-icon">📤</span>
+                    <span>Logout</span>
+                </div>
+            </aside>
+            <main class="modern-main">
+                <h1 style="margin-bottom: var(--space-6);">Dashboard Overview</h1>
+
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-label">Active Seminars</div>
+                        <div class="metric-value">12</div>
+                        <div class="metric-trend">↑ 15% from last month</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Total Attendees</div>
+                        <div class="metric-value">248</div>
+                        <div class="metric-trend">↑ 23% from last month</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Revenue (Month)</div>
+                        <div class="metric-value">₱125,000</div>
+                        <div class="metric-trend">↑ 8% from last month</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Completion Rate</div>
+                        <div class="metric-value">94%</div>
+                        <div class="metric-trend">↓ 2% from last month</div>
+                    </div>
+                </div>
+
+                <div class="data-table">
+                    <div class="table-header">
+                        <h2>Recent Seminars</h2>
+                        <div class="search-bar">
+                            <span>🔍</span>
+                            <input type="text" placeholder="Search seminars...">
+                        </div>
+                    </div>
+                    <table style="width: 100%; padding: var(--space-4);">
+                        <thead>
+                            <tr style="border-bottom: 1px solid var(--gray-200);">
+                                <th style="text-align: left; padding: var(--space-4);">Title</th>
+                                <th style="text-align: left; padding: var(--space-4);">Date</th>
+                                <th style="text-align: left; padding: var(--space-4);">Attendees</th>
+                                <th style="text-align: left; padding: var(--space-4);">Status</th>
+                                <th style="text-align: left; padding: var(--space-4);">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid var(--gray-100);">
+                                <td style="padding: var(--space-4);">CPD Real Estate Law Update</td>
+                                <td style="padding: var(--space-4);">Dec 15, 2024</td>
+                                <td style="padding: var(--space-4);">45/50</td>
+                                <td style="padding: var(--space-4);"><span class="badge badge-success">Active</span></td>
+                                <td style="padding: var(--space-4);">Edit | View | Delete</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Option 2: Command Center -->
+    <div class="dashboard-option" id="command">
+        <div class="command-center">
+            <nav class="command-nav">
+                <h2>Command Center</h2>
+                <div class="command-palette">
+                    <span>🔍 Quick Actions</span>
+                    <span class="shortcut">Cmd+K</span>
+                </div>
+                <div style="margin-left: auto; display: flex; gap: var(--space-4);">
+                    <span>Seminars</span>
+                    <span>Timeline</span>
+                    <span>Analytics</span>
+                    <span>Settings</span>
+                </div>
+            </nav>
+
+            <div class="command-grid">
+                <div class="widget" style="grid-column: span 2;">
+                    <div class="widget-header">
+                        <h3>Seminar Pipeline</h3>
+                        <button>+ Add Seminar</button>
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-3);">
+                        <div class="kanban-column">
+                            <h4 style="margin-bottom: var(--space-3);">Draft (3)</h4>
+                            <div class="kanban-card">
+                                <strong>Broker Ethics</strong>
+                                <p style="font-size: 12px; color: var(--gray-500);">Planned for January</p>
+                            </div>
+                            <div class="kanban-card">
+                                <strong>Property Valuation</strong>
+                                <p style="font-size: 12px; color: var(--gray-500);">Needs approval</p>
+                            </div>
+                        </div>
+                        <div class="kanban-column">
+                            <h4 style="margin-bottom: var(--space-3);">Active (5)</h4>
+                            <div class="kanban-card">
+                                <strong>CPD Real Estate Law</strong>
+                                <p style="font-size: 12px; color: var(--gray-500);">45 enrolled</p>
+                            </div>
+                        </div>
+                        <div class="kanban-column">
+                            <h4 style="margin-bottom: var(--space-3);">Completed (12)</h4>
+                            <div class="kanban-card">
+                                <strong>Sales Masterclass</strong>
+                                <p style="font-size: 12px; color: var(--gray-500);">Finished Nov 30</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="widget">
+                    <div class="widget-header">
+                        <h3>Quick Stats</h3>
+                        <span>↻</span>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span>Today's Revenue</span>
+                            <strong>₱15,000</strong>
+                        </div>
+                        <div class="stat-item">
+                            <span>New Enrollments</span>
+                            <strong>8</strong>
+                        </div>
+                        <div class="stat-item">
+                            <span>Pending Payments</span>
+                            <strong>3</strong>
+                        </div>
+                        <div class="stat-item">
+                            <span>Active Users</span>
+                            <strong>142</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="widget">
+                    <div class="widget-header">
+                        <h3>Upcoming Schedule</h3>
+                        <span>Calendar View →</span>
+                    </div>
+                    <div style="font-size: 14px;">
+                        <div style="padding: var(--space-2); border-left: 3px solid var(--primary); margin-bottom: var(--space-2);">
+                            <strong>Tomorrow, 9:00 AM</strong>
+                            <p style="color: var(--gray-500);">CPD Session - Room A</p>
+                        </div>
+                        <div style="padding: var(--space-2); border-left: 3px solid var(--success); margin-bottom: var(--space-2);">
+                            <strong>Dec 18, 2:00 PM</strong>
+                            <p style="color: var(--gray-500);">Workshop - Online</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Option 3: Mobile-First -->
+    <div class="dashboard-option" id="mobile">
+        <div class="mobile-first">
+            <div class="mobile-header">
+                <h1>Good Morning, Provider! 👋</h1>
+                <p style="color: var(--gray-500); margin-top: var(--space-2);">You have 3 seminars today</p>
+            </div>
+
+            <div class="mobile-card">
+                <div class="card-header">
+                    <h3>Today's Schedule</h3>
+                    <span style="color: var(--primary);">View All →</span>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: var(--space-3);">
+                    <div style="display: flex; gap: var(--space-3); align-items: center;">
+                        <div style="width: 4px; height: 40px; background: var(--primary); border-radius: 2px;"></div>
+                        <div>
+                            <strong>9:00 AM - CPD Real Estate</strong>
+                            <p style="font-size: 14px; color: var(--gray-500);">45 attendees • Room A</p>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: var(--space-3); align-items: center;">
+                        <div style="width: 4px; height: 40px; background: var(--success); border-radius: 2px;"></div>
+                        <div>
+                            <strong>2:00 PM - Property Valuation</strong>
+                            <p style="font-size: 14px; color: var(--gray-500);">30 attendees • Online</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mobile-card">
+                <div class="card-header">
+                    <h3>Quick Actions</h3>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-3);">
+                    <button style="padding: var(--space-4); background: var(--primary-light); border: none; border-radius: var(--radius-md); cursor: pointer;">
+                        <span style="font-size: 24px;">📚</span>
+                        <p style="margin-top: var(--space-2);">New Seminar</p>
+                    </button>
+                    <button style="padding: var(--space-4); background: var(--gray-100); border: none; border-radius: var(--radius-md); cursor: pointer;">
+                        <span style="font-size: 24px;">👥</span>
+                        <p style="margin-top: var(--space-2);">Attendees</p>
+                    </button>
+                    <button style="padding: var(--space-4); background: var(--gray-100); border: none; border-radius: var(--radius-md); cursor: pointer;">
+                        <span style="font-size: 24px;">📊</span>
+                        <p style="margin-top: var(--space-2);">Reports</p>
+                    </button>
+                    <button style="padding: var(--space-4); background: var(--gray-100); border: none; border-radius: var(--radius-md); cursor: pointer;">
+                        <span style="font-size: 24px;">💰</span>
+                        <p style="margin-top: var(--space-2);">Payments</p>
+                    </button>
+                </div>
+            </div>
+
+            <div class="mobile-card">
+                <div class="card-header">
+                    <h3>Recent Activity</h3>
+                    <span class="badge badge-warning">3 New</span>
+                </div>
+                <div style="font-size: 14px;">
+                    <div style="padding: var(--space-3) 0; border-bottom: 1px solid var(--gray-100);">
+                        <strong>New enrollment</strong>
+                        <p style="color: var(--gray-500);">John Doe enrolled in CPD Real Estate • 2 min ago</p>
+                    </div>
+                    <div style="padding: var(--space-3) 0; border-bottom: 1px solid var(--gray-100);">
+                        <strong>Payment received</strong>
+                        <p style="color: var(--gray-500);">₱3,000 from Jane Smith • 15 min ago</p>
+                    </div>
+                    <div style="padding: var(--space-3) 0;">
+                        <strong>Course completed</strong>
+                        <p style="color: var(--gray-500);">Sales Masterclass finished • 1 hour ago</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-nav">
+            <div class="bottom-nav-item active">
+                <span>🏠</span>
+                <span>Home</span>
+            </div>
+            <div class="bottom-nav-item">
+                <span>📚</span>
+                <span>Seminars</span>
+            </div>
+            <div class="bottom-nav-item">
+                <span>👥</span>
+                <span>Attendees</span>
+            </div>
+            <div class="bottom-nav-item">
+                <span>📊</span>
+                <span>Analytics</span>
+            </div>
+            <div class="bottom-nav-item">
+                <span>👤</span>
+                <span>Profile</span>
+            </div>
+        </div>
+
+        <div class="fab">+</div>
+    </div>
+
+    <!-- Option 4: Analytics Dashboard -->
+    <div class="dashboard-option" id="analytics">
+        <div class="analytics-dashboard">
+            <h1 style="margin-bottom: var(--space-4);">Analytics Dashboard</h1>
+
+            <div class="tab-nav">
+                <div class="tab active">Overview</div>
+                <div class="tab">Revenue</div>
+                <div class="tab">Attendance</div>
+                <div class="tab">Performance</div>
+                <div class="tab">Forecasting</div>
+            </div>
+
+            <div class="chart-grid">
+                <div class="chart-card">
+                    <h3>Revenue Trend</h3>
+                    <p style="font-size: 14px; color: var(--gray-500);">Last 6 months</p>
+                    <div class="chart-placeholder">
+                        📈 Line Chart Placeholder
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <h3>Seminar Distribution</h3>
+                    <p style="font-size: 14px; color: var(--gray-500);">By category</p>
+                    <div class="chart-placeholder">
+                        🍩 Donut Chart Placeholder
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <h3>Attendance Rate</h3>
+                    <p style="font-size: 14px; color: var(--gray-500);">Weekly comparison</p>
+                    <div class="chart-placeholder">
+                        📊 Bar Chart Placeholder
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <h3>Popular Time Slots</h3>
+                    <p style="font-size: 14px; color: var(--gray-500);">Heatmap by day/time</p>
+                    <div class="heatmap">
+                        <div class="heatmap-cell heat-low">Mon</div>
+                        <div class="heatmap-cell heat-medium">Tue</div>
+                        <div class="heatmap-cell heat-high">Wed</div>
+                        <div class="heatmap-cell heat-high">Thu</div>
+                        <div class="heatmap-cell heat-medium">Fri</div>
+                        <div class="heatmap-cell heat-low">Sat</div>
+                        <div class="heatmap-cell heat-low">Sun</div>
+
+                        <div class="heatmap-cell heat-low">9am</div>
+                        <div class="heatmap-cell heat-high">10am</div>
+                        <div class="heatmap-cell heat-high">2pm</div>
+                        <div class="heatmap-cell heat-medium">3pm</div>
+                        <div class="heatmap-cell heat-low">4pm</div>
+                        <div class="heatmap-cell heat-low">5pm</div>
+                        <div class="heatmap-cell heat-low">6pm</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="data-table">
+                <div class="table-header">
+                    <h2>Top Performing Seminars</h2>
+                    <button style="background: var(--primary); color: white; border: none; padding: var(--space-2) var(--space-4); border-radius: var(--radius-md); cursor: pointer;">
+                        Export Report
+                    </button>
+                </div>
+                <div style="padding: var(--space-4);">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div>
+                                <strong>CPD Real Estate Law</strong>
+                                <p style="font-size: 12px; color: var(--gray-500);">98% completion rate</p>
+                            </div>
+                            <span style="color: var(--success);">↑ 12%</span>
+                        </div>
+                        <div class="stat-item">
+                            <div>
+                                <strong>Sales Masterclass</strong>
+                                <p style="font-size: 12px; color: var(--gray-500);">4.8/5 rating</p>
+                            </div>
+                            <span style="color: var(--success);">↑ 8%</span>
+                        </div>
+                        <div class="stat-item">
+                            <div>
+                                <strong>Property Valuation</strong>
+                                <p style="font-size: 12px; color: var(--gray-500);">₱45,000 revenue</p>
+                            </div>
+                            <span style="color: var(--warning);">→ 0%</span>
+                        </div>
+                        <div class="stat-item">
+                            <div>
+                                <strong>Broker Ethics</strong>
+                                <p style="font-size: 12px; color: var(--gray-500);">35 enrollments</p>
+                            </div>
+                            <span style="color: var(--danger);">↓ 5%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showOption(option) {
+            // Remove active class from all options
+            document.querySelectorAll('.dashboard-option').forEach(el => {
+                el.classList.remove('active');
+            });
+            document.querySelectorAll('.option-btn').forEach(el => {
+                el.classList.remove('active');
+            });
+
+            // Add active class to selected option
+            if (option === 'modern') {
+                document.getElementById('modern').classList.add('active');
+                document.querySelectorAll('.option-btn')[0].classList.add('active');
+            } else if (option === 'command') {
+                document.getElementById('command').classList.add('active');
+                document.querySelectorAll('.option-btn')[1].classList.add('active');
+            } else if (option === 'mobile') {
+                document.getElementById('mobile').classList.add('active');
+                document.querySelectorAll('.option-btn')[2].classList.add('active');
+            } else if (option === 'analytics') {
+                document.getElementById('analytics').classList.add('active');
+                document.querySelectorAll('.option-btn')[3].classList.add('active');
+            }
+        }
+
+        // Add some interactive elements
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', function() {
+                document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
