@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Contact Us - resp.ph</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="css/resp-style.css" />
+    </head>
+    <body>
+        <!-- Header Navigation -->
+        <header class="header">
+            <nav class="container nav">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="images/resplogo.png" alt="resp.ph logo" />
+                    </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Contact Hero -->
+        <section class="contact-hero">
+            <div class="container">
+                <h1>Contact Us</h1>
+                <p>
+                    We're here to help you navigate your real estate education
+                    journey
+                </p>
+            </div>
+        </section>
+
+        <!-- Contact Content -->
+        <section class="contact-content">
+            <div class="container">
+                <div class="contact-grid">
+                    <!-- Contact Information -->
+                    <div class="contact-info">
+                        <h2>Get in Touch</h2>
+
+                        <div class="contact-item">
+                            <h3>📧 Email Support</h3>
+                            <p>
+                                <strong>General Inquiries:</strong><br />
+                                <a href="mailto:support@resp.ph"
+                                    >support@resp.ph</a
+                                >
+                            </p>
+                            <p>
+                                <strong>Provider Partnerships:</strong><br />
+                                <a href="mailto:providers@resp.ph"
+                                    >providers@resp.ph</a
+                                >
+                            </p>
+                            <p>
+                                <strong>Technical Support:</strong><br />
+                                <a href="mailto:tech@resp.ph">tech@resp.ph</a>
+                            </p>
+                        </div>
+
+                        <div class="contact-item">
+                            <h3>📱 Phone Support</h3>
+                            <p>
+                                <strong>Metro Manila:</strong> (02) 8-555-RESP
+                                (7377)<br />
+                                <strong>Mobile:</strong> +63 917 123 7377<br />
+                                <small
+                                    >Available Monday-Friday, 9:00 AM - 6:00 PM
+                                    PHT</small
+                                >
+                            </p>
+                        </div>
+
+                        <div class="contact-item">
+                            <h3>📍 Office Location</h3>
+                            <p>
+                                resp.ph Headquarters<br />
+                                Unit 2501, 25th Floor<br />
+                                One Corporate Centre<br />
+                                Julia Vargas Avenue corner Meralco Avenue<br />
+                                Ortigas Center, Pasig City 1605<br />
+                                Philippines
+                            </p>
+                        </div>
+
+                        <div class="office-hours">
+                            <h3>🕐 Office Hours</h3>
+                            <p>
+                                <strong>Monday - Friday:</strong> 9:00 AM - 6:00
+                                PM<br />
+                                <strong>Saturday:</strong> 9:00 AM - 1:00 PM<br />
+                                <strong>Sunday & Holidays:</strong>
+                                Closed<br /><br />
+                                <small
+                                    >*Email support available 24/7 with response
+                                    within 24-48 hours</small
+                                >
+                            </p>
+                        </div>
+
+                        <div class="contact-item">
+                            <h3>🌐 Follow Us</h3>
+                            <div class="social-links">
+                                <a
+                                    href="https://facebook.com/resp.ph"
+                                    target="_blank"
+                                    >Facebook</a
+                                >
+                                <a
+                                    href="https://linkedin.com/company/resp-ph"
+                                    target="_blank"
+                                    >LinkedIn</a
+                                >
+                                <a
+                                    href="https://twitter.com/resp_ph"
+                                    target="_blank"
+                                    >Twitter</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="contact-form-section">
+                        <h2>Send Us a Message</h2>
+                        <form class="signup-form" id="contact-form">
+                            <div class="form-group">
+                                <label for="contact-name">Full Name *</label>
+                                <input
+                                    type="text"
+                                    id="contact-name"
+                                    name="name"
+                                    placeholder="Juan dela Cruz"
+                                    required
+                                />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contact-email"
+                                    >Email Address *</label
+                                >
+                                <input
+                                    type="email"
+                                    id="contact-email"
+                                    name="email"
+                                    placeholder="juan@example.com"
+                                    required
+                                />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contact-phone"
+                                    >Phone Number (Optional)</label
+                                >
+                                <input
+                                    type="tel"
+                                    id="contact-phone"
+                                    name="phone"
+                                    placeholder="+63 917 123 4567"
+                                />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inquiry-type">Inquiry Type *</label>
+                                <select
+                                    id="inquiry-type"
+                                    name="inquiry-type"
+                                    required
+                                >
+                                    <option value="">
+                                        Select inquiry type
+                                    </option>
+                                    <option value="general">
+                                        General Inquiry
+                                    </option>
+                                    <option value="provider">
+                                        Provider Partnership
+                                    </option>
+                                    <option value="technical">
+                                        Technical Support
+                                    </option>
+                                    <option value="cpd">CPD Seminars</option>
+                                    <option value="review">
+                                        Review Classes
+                                    </option>
+                                    <option value="university">
+                                        University Programs
+                                    </option>
+                                    <option value="feedback">
+                                        Feedback/Suggestions
+                                    </option>
+                                    <option value="complaint">Complaint</option>
+                                </select>
+                            </div>
+
+                            <div
+                                class="form-group"
+                                id="provider-fields"
+                                style="display: none"
+                            >
+                                <label for="organization"
+                                    >Organization Name</label
+                                >
+                                <input
+                                    type="text"
+                                    id="organization"
+                                    name="organization"
+                                    placeholder="Your organization"
+                                />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subject">Subject *</label>
+                                <input
+                                    type="text"
+                                    id="subject"
+                                    name="subject"
+                                    placeholder="Brief subject of your inquiry"
+                                    required
+                                />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea
+                                    id="message"
+                                    name="message"
+                                    rows="6"
+                                    placeholder="Please provide details about your inquiry..."
+                                    required
+                                ></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label
+                                    style="
+                                        display: flex;
+                                        align-items: center;
+                                        gap: 0.5rem;
+                                    "
+                                >
+                                    <input
+                                        type="checkbox"
+                                        id="newsletter"
+                                        name="newsletter"
+                                    />
+                                    <span style="font-weight: normal"
+                                        >Subscribe to our newsletter for
+                                        updates</span
+                                    >
+                                </label>
+                            </div>
+
+                            <button
+                                type="submit"
+                                class="cta-button cta-primary"
+                            >
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-grid">
+                        <div class="footer-column">
+                            <div class="footer-logo">
+                                <img
+                                    src="images/resplogo.png"
+                                    alt="resp.ph logo"
+                                />
+                            </div>
+                            <p class="footer-tagline">
+                                Building the future of real estate education in
+                                the Philippines
+                            </p>
+                        </div>
+
+                        <div class="footer-column">
+                            <h4>Navigation</h4>
+                            <ul class="footer-links">
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="about.html">About Us</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="footer-column">
+                            <h4>Resources</h4>
+                            <ul class="footer-links">
+                                <li>
+                                    <a
+                                        href="https://www.prc.gov.ph"
+                                        target="_blank"
+                                        rel="noopener"
+                                        >PRC Info</a
+                                    >
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="footer-column">
+                            <h4>Legal</h4>
+                            <ul class="footer-links">
+                                <li>
+                                    <a href="privacy.html">Privacy Policy</a>
+                                </li>
+                                <li>
+                                    <a href="terms.html">Terms of Service</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 resp.ph. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            // Show/hide provider fields based on inquiry type
+            document
+                .getElementById("inquiry-type")
+                .addEventListener("change", function () {
+                    const providerFields =
+                        document.getElementById("provider-fields");
+                    if (this.value === "provider") {
+                        providerFields.style.display = "block";
+                    } else {
+                        providerFields.style.display = "none";
+                    }
+                });
+
+            // Contact form submission
+            document
+                .getElementById("contact-form")
+                .addEventListener("submit", function (e) {
+                    e.preventDefault();
+                    alert(
+                        "Thank you for contacting us! We'll respond to your inquiry within 24-48 hours.",
+                    );
+                    this.reset();
+                });
+        </script>
+    </body>
+</html>

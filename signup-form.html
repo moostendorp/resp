@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Form with CSV Storage - resp.ph</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/resp-style.css">
+    <style>
+        body {
+            background: #F9FAFB;
+            padding: 2rem;
+        }
+        .demo-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .status-message {
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            display: none;
+        }
+        .status-message.success {
+            background: #F0FDF4;
+            color: #10B981;
+            border: 1px solid #10B981;
+            display: block;
+        }
+        .status-message.error {
+            background: #FEF2F2;
+            color: #EF4444;
+            border: 1px solid #EF4444;
+            display: block;
+        }
+        .signup-count {
+            background: #EFF6FF;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .signup-count .number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #1E3A8A;
+        }
+        .server-status {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+        .server-status.online {
+            background: #10B981;
+            color: white;
+        }
+        .server-status.offline {
+            background: #EF4444;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="server-status offline" id="serverStatus">Server Offline</div>
+
+    <div class="demo-container">
+        <h1>CSV Signup Storage Demo</h1>
+        <p style="color: #6B7280; margin-bottom: 2rem;">
+            This form saves signups to a CSV file on your server. Start the backend server first:
+            <code style="background: #F3F4F6; padding: 0.25rem 0.5rem; border-radius: 4px;">
+                cd server && npm install && npm start
+            </code>
+        </p>
+
+        <div class="signup-count" id="signupCount">
+            <div class="number">-</div>
+            <div>People on the waitlist</div>
+        </div>
+
+        <div class="status-message" id="statusMessage"></div>
+
+        <form class="signup-form" id="signupForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="name">Name (Optional)</label>
+                    <input type="text" id="name" name="name" placeholder="Your name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="role">Role</label>
+                    <select id="role" name="role">
+                        <option value="">Select your role</option>
+                        <option value="aspiring">Aspiring Professional</option>
+                        <option value="licensed">Licensed Professional</option>
+                        <option value="provider">Provider/University</option>
+                    </select>
+                </div>
+                <div class="form-group" id="accreditation-group" style="display: none;">
+                    <label for="accreditation">Accreditation Number</label>
+                    <input type="text" id="accreditation" name="accreditation" placeholder="Your accreditation number">
+                </div>
+            </div>
+            <div class="form-group full-width">
+                <label for="comments">Questions/Comments (Optional)</label>
+                <textarea id="comments" name="comments" rows="4" placeholder="Tell us what you're looking for..."></textarea>
+            </div>
+            <button type="submit" class="cta-button cta-primary" id="submitBtn">
+                Join the Waitlist
+            </button>
+        </form>
+
+        <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #E5E7EB;">
+            <h3>Admin Actions</h3>
+            <button onclick="downloadCSV()" class="cta-button" style="background: #6B7280; margin-top: 1rem;">
+                Download Signups CSV
+            </button>
+            <p style="color: #9CA3AF; font-size: 0.875rem; margin-top: 0.5rem;">
+                Use secret key: <code>your-secret-key-here</code>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:3001/api';
+
+        // Check server status
+        async function checkServer() {
+            try {
+                const response = await fetch(`${API_URL}/health`);
+                if (response.ok) {
+                    document.getElementById('serverStatus').textContent = 'Server Online';
+                    document.getElementById('serverStatus').className = 'server-status online';
+                    updateSignupCount();
+                } else {
+                    throw new Error('Server not responding');
+                }
+            } catch (error) {
+                document.getElementById('serverStatus').textContent = 'Server Offline';
+                document.getElementById('serverStatus').className = 'server-status offline';
+            }
+        }
+
+        // Update signup count
+        async function updateSignupCount() {
+            try {
+                const response = await fetch(`${API_URL}/signup-count`);
+                const data = await response.json();
+                document.querySelector('#signupCount .number').textContent = data.count || '0';
+            } catch (error) {
+                console.error('Error fetching count:', error);
+            }
+        }
+
+        // Show/hide accreditation field
+        document.getElementById('role').addEventListener('change', function() {
+            const accreditationGroup = document.getElementById('accreditation-group');
+            if (this.value === 'provider') {
+                accreditationGroup.style.display = 'block';
+            } else {
+                accreditationGroup.style.display = 'none';
+            }
+        });
+
+        // Handle form submission
+        document.getElementById('signupForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const submitBtn = document.getElementById('submitBtn');
+            const statusMessage = document.getElementById('statusMessage');
+
+            // Disable button and show loading
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+            statusMessage.style.display = 'none';
+
+            // Get form data
+            const formData = {
+                email: document.getElementById('email').value,
+                name: document.getElementById('name').value,
+                role: document.getElementById('role').value,
+                accreditation: document.getElementById('accreditation').value,
+                comments: document.getElementById('comments').value
+            };
+
+            try {
+                const response = await fetch(`${API_URL}/signup`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+
+                if (response.ok && result.success) {
+                    // Success
+                    statusMessage.textContent = result.message;
+                    statusMessage.className = 'status-message success';
+                    this.reset();
+                    updateSignupCount();
+                } else {
+                    // Error
+                    statusMessage.textContent = result.message || 'Something went wrong. Please try again.';
+                    statusMessage.className = 'status-message error';
+                }
+            } catch (error) {
+                // Network error
+                statusMessage.textContent = 'Cannot connect to server. Make sure the backend is running.';
+                statusMessage.className = 'status-message error';
+            } finally {
+                // Re-enable button
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Join the Waitlist';
+            }
+        });
+
+        // Download CSV function
+        function downloadCSV() {
+            const key = prompt('Enter secret key:');
+            if (key) {
+                window.open(`${API_URL}/download-signups?key=${key}`, '_blank');
+            }
+        }
+
+        // Check server status on load and every 5 seconds
+        checkServer();
+        setInterval(checkServer, 5000);
+    </script>
+</body>
+</html>

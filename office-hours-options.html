@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Office Hours Box Design Options - resp.ph</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #F9FAFB;
+            padding: 2rem;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #1E3A8A;
+            margin-bottom: 1rem;
+        }
+        h2 {
+            color: #111827;
+            margin: 2rem 0 1rem;
+            font-size: 1.25rem;
+        }
+        .option {
+            margin-bottom: 3rem;
+        }
+
+        /* Option 1: Blue Gradient (Current) */
+        .office-hours-1 {
+            background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .office-hours-1::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            transform: translate(30px, -30px);
+        }
+        .office-hours-1 h3 {
+            color: white;
+            margin-bottom: 1.25rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        .office-hours-1 p { color: rgba(255, 255, 255, 0.95); line-height: 1.8; }
+        .office-hours-1 strong { color: white; font-weight: 600; }
+        .office-hours-1 small {
+            color: rgba(255, 255, 255, 0.85);
+            font-style: italic;
+            display: block;
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Option 2: Light Blue Background */
+        .office-hours-2 {
+            background: #EFF6FF;
+            color: #1E3A8A;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 2px solid #DBEAFE;
+            position: relative;
+        }
+        .office-hours-2 h3 {
+            color: #1E3A8A;
+            margin-bottom: 1.25rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        .office-hours-2 p { color: #1E40AF; line-height: 1.8; }
+        .office-hours-2 strong { color: #1E3A8A; font-weight: 600; }
+        .office-hours-2 small {
+            color: #3B82F6;
+            font-style: italic;
+            display: block;
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+            border-top: 1px solid #DBEAFE;
+        }
+
+        /* Option 3: White with Blue Accent */
+        .office-hours-3 {
+            background: white;
+            color: #111827;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #3B82F6;
+            position: relative;
+        }
+        .office-hours-3::before {
+            content: '🕐';
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 2rem;
+            opacity: 0.1;
+        }
+        .office-hours-3 h3 {
+            color: #1E3A8A;
+            margin-bottom: 1.25rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        .office-hours-3 p { color: #4B5563; line-height: 1.8; }
+        .office-hours-3 strong { color: #111827; font-weight: 600; }
+        .office-hours-3 small {
+            color: #6B7280;
+            font-style: italic;
+            display: block;
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+            border-top: 1px solid #E5E7EB;
+        }
+
+        /* Option 4: Dark Navy */
+        .office-hours-4 {
+            background: #0F172A;
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+        .office-hours-4 h3 {
+            color: #38BDF8;
+            margin-bottom: 1.25rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        .office-hours-4 p { color: #CBD5E1; line-height: 1.8; }
+        .office-hours-4 strong { color: white; font-weight: 600; }
+        .office-hours-4 small {
+            color: #94A3B8;
+            font-style: italic;
+            display: block;
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+            border-top: 1px solid #334155;
+        }
+
+        /* Option 5: Gradient with Pattern */
+        .office-hours-5 {
+            background:
+                linear-gradient(135deg, rgba(30, 58, 138, 0.95) 0%, rgba(37, 99, 235, 0.95) 100%),
+                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.02) 35px, rgba(255,255,255,.02) 70px);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px -5px rgba(30, 58, 138, 0.3);
+            position: relative;
+        }
+        .office-hours-5 h3 {
+            color: white;
+            margin-bottom: 1.25rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        .office-hours-5 p { color: rgba(255, 255, 255, 0.95); line-height: 1.8; }
+        .office-hours-5 strong { color: white; font-weight: 600; }
+        .office-hours-5 small {
+            color: rgba(255, 255, 255, 0.85);
+            font-style: italic;
+            display: block;
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Option 6: Card with Icon Background */
+        .office-hours-6 {
+            background: #FAFAFA;
+            color: #111827;
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid #E5E7EB;
+            position: relative;
+            overflow: hidden;
+        }
+        .office-hours-6::after {
+            content: '⏰';
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            font-size: 100px;
+            opacity: 0.05;
+            transform: rotate(-15deg);
+        }
+        .office-hours-6 h3 {
+            color: #10B981;
+            margin-bottom: 1.25rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .office-hours-6 p {
+            color: #374151;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+        .office-hours-6 strong { color: #111827; font-weight: 600; }
+        .office-hours-6 small {
+            color: #6B7280;
+            font-style: italic;
+            display: block;
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+            border-top: 1px solid #E5E7EB;
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Office Hours Box - Design Options</h1>
+        <p style="color: #6B7280; margin-bottom: 2rem;">Choose the best color combination for the Office Hours section:</p>
+
+        <!-- Option 1 -->
+        <div class="option">
+            <h2>Option 1: Blue Gradient (Applied)</h2>
+            <div class="office-hours-1">
+                <h3>🕐 Office Hours</h3>
+                <p>
+                    <strong>Monday - Friday:</strong> 9:00 AM - 6:00 PM<br>
+                    <strong>Saturday:</strong> 9:00 AM - 1:00 PM<br>
+                    <strong>Sunday & Holidays:</strong> Closed<br><br>
+                    <small>*Email support available 24/7 with response within 24-48 hours</small>
+                </p>
+            </div>
+        </div>
+
+        <!-- Option 2 -->
+        <div class="option">
+            <h2>Option 2: Light Blue Background</h2>
+            <div class="office-hours-2">
+                <h3>🕐 Office Hours</h3>
+                <p>
+                    <strong>Monday - Friday:</strong> 9:00 AM - 6:00 PM<br>
+                    <strong>Saturday:</strong> 9:00 AM - 1:00 PM<br>
+                    <strong>Sunday & Holidays:</strong> Closed<br><br>
+                    <small>*Email support available 24/7 with response within 24-48 hours</small>
+                </p>
+            </div>
+        </div>
+
+        <!-- Option 3 -->
+        <div class="option">
+            <h2>Option 3: White with Blue Accent</h2>
+            <div class="office-hours-3">
+                <h3>🕐 Office Hours</h3>
+                <p>
+                    <strong>Monday - Friday:</strong> 9:00 AM - 6:00 PM<br>
+                    <strong>Saturday:</strong> 9:00 AM - 1:00 PM<br>
+                    <strong>Sunday & Holidays:</strong> Closed<br><br>
+                    <small>*Email support available 24/7 with response within 24-48 hours</small>
+                </p>
+            </div>
+        </div>
+
+        <!-- Option 4 -->
+        <div class="option">
+            <h2>Option 4: Dark Navy</h2>
+            <div class="office-hours-4">
+                <h3>🕐 Office Hours</h3>
+                <p>
+                    <strong>Monday - Friday:</strong> 9:00 AM - 6:00 PM<br>
+                    <strong>Saturday:</strong> 9:00 AM - 1:00 PM<br>
+                    <strong>Sunday & Holidays:</strong> Closed<br><br>
+                    <small>*Email support available 24/7 with response within 24-48 hours</small>
+                </p>
+            </div>
+        </div>
+
+        <!-- Option 5 -->
+        <div class="option">
+            <h2>Option 5: Gradient with Pattern</h2>
+            <div class="office-hours-5">
+                <h3>🕐 Office Hours</h3>
+                <p>
+                    <strong>Monday - Friday:</strong> 9:00 AM - 6:00 PM<br>
+                    <strong>Saturday:</strong> 9:00 AM - 1:00 PM<br>
+                    <strong>Sunday & Holidays:</strong> Closed<br><br>
+                    <small>*Email support available 24/7 with response within 24-48 hours</small>
+                </p>
+            </div>
+        </div>
+
+        <!-- Option 6 -->
+        <div class="option">
+            <h2>Option 6: Card with Icon Background</h2>
+            <div class="office-hours-6">
+                <h3>🕐 Office Hours</h3>
+                <p>
+                    <strong>Monday - Friday:</strong> 9:00 AM - 6:00 PM<br>
+                    <strong>Saturday:</strong> 9:00 AM - 1:00 PM<br>
+                    <strong>Sunday & Holidays:</strong> Closed<br><br>
+                    <small>*Email support available 24/7 with response within 24-48 hours</small>
+                </p>
+            </div>
+        </div>
+
+        <div style="margin-top: 3rem; padding: 2rem; background: white; border-radius: 8px;">
+            <h2 style="margin-top: 0;">Recommendation</h2>
+            <p style="color: #4B5563; line-height: 1.6;">
+                <strong>Option 1 (Blue Gradient)</strong> - Currently applied. Maintains brand consistency with the hero sections.<br><br>
+                <strong>Option 3 (White with Blue Accent)</strong> - Good alternative for better contrast and readability.<br><br>
+                <strong>Option 2 (Light Blue)</strong> - Softer approach, good for accessibility.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
